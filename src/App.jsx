@@ -20,7 +20,7 @@ function App() {
             <Route element={<DefaultLayout />}>
               <Route path='/' element={<Home />} />
               <Route path='/posts' element={<PostsPage />} />
-              <Route path='/posts/1' element={<PostCard />} />
+              <Route path='/posts/:id' element={<PostCard />} />
             </Route>
           </Routes>
         </BrowserRouter>

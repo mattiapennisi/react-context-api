@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 
 import PostsContext from '../contexts/PostsContext.jsx'
 
-import PostCard from "../pages/PostCard"
-
 export default function PostsList() {
 
     const { posts } = useContext(PostsContext)
@@ -20,8 +18,8 @@ export default function PostsList() {
                                 <h4 className="card-title">{post.title}</h4>
                                 <p className="card-text">{post.body}</p>
                             </div>
-                            <Link to='/posts/1'>
-                                <div className="btn btn-primary m-3 ">Open Post</div>
+                            <Link to={`/posts/${post.id}`}>
+                                <div className="btn btn-primary m-3">Open Post</div>
                             </Link>
                         </div>
                     )
