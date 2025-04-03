@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import PostsContext from './contexts/PostsContext.jsx'
+import { AlertProvider } from './contexts/AlertContext.jsx'
 
 import DefaultLayout from './layouts/DefaultLayout.jsx'
 
@@ -14,17 +15,20 @@ function App() {
 
   return (
     <>
-      <PostsContext.Provider value={{ posts }}>
-        <BrowserRouter>
-          <Routes>
-            <Route element={<DefaultLayout />}>
-              <Route path='/' element={<Home />} />
-              <Route path='/posts' element={<PostsPage />} />
-              <Route path='/posts/:id' element={<PostCard />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </PostsContext.Provider>
+      <AlertProvider>
+        <PostsContext.Provider value={{ posts }}>
+          <BrowserRouter>
+            <Routes>
+              <Route element={<DefaultLayout />}>
+                <Route path='/' element={<Home />} />
+                <Route path='/posts' element={<PostsPage />} />
+                <Route path='/posts/:id' element={<PostCard />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </PostsContext.Provider>
+      </AlertProvider>
+
     </>
   )
 }
